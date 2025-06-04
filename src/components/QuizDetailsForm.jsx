@@ -1,7 +1,9 @@
+import QuizContext from "../context/QuizContext";
 import Toast from "./Toast";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function QuizDetailsForm() {
+  const { updateDetails, details, setCurrentStep } = useContext(QuizContext);
   const [formData, setFormData] = useState({
     title: "",
     desc: "",
@@ -11,6 +13,19 @@ function QuizDetailsForm() {
   });
   const [isTimed, setIsTimed] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
+
+  useEffect(() => {
+    if (details) {
+      setFormData({
+        title: details.title || "",
+        desc: details.description || "",
+        numQuestion: details.numQuestions || "",
+        type: details.type || "",
+        timeLimit: details.timeLimit || "",
+      });
+      setIsTimed(!!details.timeLimit);
+    }
+  }, [details]);
 
   const handleTimedChange = () => {
     setIsTimed(!isTimed);
@@ -59,9 +74,11 @@ function QuizDetailsForm() {
       numQuestions: Number(formData.numQuestion),
       type: formData.type,
       ...(isTimed && { timeLimit: Number(formData.timeLimit) }),
+      questions: Array(Number(formData.numQuestion)).fill(null),
     };
 
-    console.log("Valid submission data:", submissionData);
+    updateDetails(submissionData);
+    setCurrentStep(2);
   };
 
   return (
