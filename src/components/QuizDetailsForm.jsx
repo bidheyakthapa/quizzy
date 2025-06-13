@@ -21,7 +21,7 @@ function QuizDetailsForm() {
         desc: details.description || "",
         numQuestion: details.numQuestions || "",
         type: details.type || "",
-        timeLimit: details.timeLimit || "",
+        timeLimit: details.timeLimit / 60 || "",
       });
       setIsTimed(!!details.timeLimit);
     }
@@ -73,7 +73,7 @@ function QuizDetailsForm() {
       description: formData.desc,
       numQuestions: Number(formData.numQuestion),
       type: formData.type,
-      ...(isTimed && { timeLimit: Number(formData.timeLimit) }),
+      ...(isTimed && { timeLimit: Number(formData.timeLimit) * 60 }),
       questions: Array(Number(formData.numQuestion)).fill(null),
     };
 

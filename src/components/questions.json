@@ -1,0 +1,153 @@
+[
+  {
+    "id": 1,
+    "title": "General Knowledge Quiz",
+    "desc": "A basic quiz to test your general knowledge.",
+    "numQuestion": 6,
+    "type": "mcq",
+    "timeLimit": 300,
+    "questions": [
+      {
+        "question": "What is the capital of France?",
+        "options": [
+          { "title": "Paris", "isCorrect": true },
+          { "title": "Madrid", "isCorrect": false },
+          { "title": "Berlin", "isCorrect": false },
+          { "title": "Rome", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "The Earth is flat.",
+        "options": [
+          { "title": "True", "isCorrect": false },
+          { "title": "False", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "Which planet is known as the Red Planet?",
+        "options": [
+          { "title": "Mars", "isCorrect": true },
+          { "title": "Venus", "isCorrect": false },
+          { "title": "Jupiter", "isCorrect": false },
+          { "title": "Saturn", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Which gas do plants absorb from the atmosphere?",
+        "options": [
+          { "title": "Carbon Dioxide", "isCorrect": true },
+          { "title": "Oxygen", "isCorrect": false },
+          { "title": "Nitrogen", "isCorrect": false },
+          { "title": "Hydrogen", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Water boils at 100 degrees Celsius.",
+        "options": [
+          { "title": "True", "isCorrect": true },
+          { "title": "False", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "options": [
+          { "title": "William Shakespeare", "isCorrect": true },
+          { "title": "Charles Dickens", "isCorrect": false },
+          { "title": "Jane Austen", "isCorrect": false },
+          { "title": "Mark Twain", "isCorrect": false }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Science Quiz",
+    "desc": "Test your knowledge about the natural world and its laws.",
+    "numQuestion": 4,
+    "type": "mcq",
+    "timeLimit": 240,
+    "questions": [
+      {
+        "question": "What is the chemical symbol for water?",
+        "options": [
+          { "title": "H2O", "isCorrect": true },
+          { "title": "O2H", "isCorrect": false },
+          { "title": "HO2", "isCorrect": false },
+          { "title": "H2", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Humans have more than five senses.",
+        "options": [
+          { "title": "True", "isCorrect": true },
+          { "title": "False", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "How many planets are in the solar system?",
+        "options": [
+          { "title": "8", "isCorrect": true },
+          { "title": "9", "isCorrect": false },
+          { "title": "7", "isCorrect": false },
+          { "title": "10", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "The Sun is a star.",
+        "options": [
+          { "title": "True", "isCorrect": true },
+          { "title": "False", "isCorrect": false }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "History Quiz",
+    "desc": "A quiz on historical events, figures, and milestones.",
+    "numQuestion": 5,
+    "type": "mcq",
+    "timeLimit": 300,
+    "questions": [
+      {
+        "question": "Who was the first president of the United States?",
+        "options": [
+          { "title": "George Washington", "isCorrect": true },
+          { "title": "Abraham Lincoln", "isCorrect": false },
+          { "title": "Thomas Jefferson", "isCorrect": false },
+          { "title": "John Adams", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "The Titanic sank in 1912.",
+        "options": [
+          { "title": "True", "isCorrect": true },
+          { "title": "False", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "The Great Wall of China was built in a single year.",
+        "options": [
+          { "title": "True", "isCorrect": false },
+          { "title": "False", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "Who discovered penicillin?",
+        "options": [
+          { "title": "Alexander Fleming", "isCorrect": true },
+          { "title": "Marie Curie", "isCorrect": false },
+          { "title": "Louis Pasteur", "isCorrect": false },
+          { "title": "Albert Einstein", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Napoleon Bonaparte was exiled to the island of Elba.",
+        "options": [
+          { "title": "True", "isCorrect": true },
+          { "title": "False", "isCorrect": false }
+        ]
+      }
+    ]
+  }
+]
