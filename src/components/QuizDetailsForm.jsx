@@ -74,7 +74,10 @@ function QuizDetailsForm() {
       numQuestions: Number(formData.numQuestion),
       type: formData.type,
       ...(isTimed && { timeLimit: Number(formData.timeLimit) * 60 }),
-      questions: Array(Number(formData.numQuestion)).fill(null),
+      questions:
+        details?.questions && details.questions.length > 0
+          ? details.questions
+          : Array(Number(formData.numQuestion)).fill(null),
     };
 
     updateDetails(submissionData);
@@ -151,9 +154,9 @@ function QuizDetailsForm() {
               className="w-full bg-gray-50 border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center"
             >
               <option value="" hidden></option>
-              <option value="MCQ">MCQ</option>
-              <option value="YN">Yes/No</option>
-              <option value="TF">True/False</option>
+              <option value="mcq">MCQ</option>
+              <option value="yn">Yes/No</option>
+              <option value="tf">True/False</option>
             </select>
           </div>
 

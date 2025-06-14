@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Nav() {
   return (
@@ -27,9 +27,12 @@ function Nav() {
         ))}
       </ul>
 
-      <button className="bg-[#1974DE] hover:bg-orange-600 text-white px-6 py-2 rounded-sm shadow-md hover:shadow-lg transition-all duration-300 font-semibold cursor-pointer">
+      <Link
+        to="/login"
+        className="bg-[#1974DE] hover:bg-blue-600 text-white px-6 py-2 rounded-sm shadow-md hover:shadow-lg transition-all duration-300 font-semibold cursor-pointer"
+      >
         LogIn
-      </button>
+      </Link>
     </div>
   );
 }

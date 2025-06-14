@@ -2,13 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import QuizContext from "../context/QuizContext";
 import Option from "./Option";
 import Toast from "./Toast";
+
 function QuizQuestionForm() {
   const { details, setCurrentStep, updateQuestion } = useContext(QuizContext);
 
   const [options, setOptions] = useState([
-    { text: "", isCorrect: false },
-    { text: "", isCorrect: false },
-    { text: "", isCorrect: false },
+    { title: "", isCorrect: false },
+    { title: "", isCorrect: false },
+    { title: "", isCorrect: false },
   ]);
 
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -17,13 +18,13 @@ function QuizQuestionForm() {
   const [toastMessage, setToastMessage] = useState(null);
 
   useEffect(() => {
-    if (questionNumber == details.numQuestions) {
+    if (questionNumber === details.numQuestions) {
       setIsLastQuestion(true);
     } else {
       setIsLastQuestion(false);
     }
     handleLoadQuestions(questionNumber - 1);
-  }, [questionNumber]);
+  }, [questionNumber, details.numQuestions]);
 
   const handleChange = (e) => {
     setQuestion(e.target.value);
@@ -31,7 +32,7 @@ function QuizQuestionForm() {
 
   const handleTextChange = (index, text) => {
     const updated = [...options];
-    updated[index].text = text;
+    updated[index].title = text;
     setOptions(updated);
   };
 
@@ -43,7 +44,7 @@ function QuizQuestionForm() {
       });
       return false;
     }
-    if (options.some((opt) => opt.text.trim() === "")) {
+    if (options.some((opt) => opt.title.trim() === "")) {
       setToastMessage({
         message: "Please fill out all options.",
         status: "error",
@@ -52,7 +53,7 @@ function QuizQuestionForm() {
     }
     if (!options.some((opt) => opt.isCorrect)) {
       setToastMessage({
-        message: "Please select an correct answer.",
+        message: "Please select a correct answer.",
         status: "error",
       });
       return false;
@@ -70,42 +71,39 @@ function QuizQuestionForm() {
   };
 
   const handleAddOptions = () => {
-    setOptions([...options, { text: "", isCorrect: false }]);
+    setOptions([...options, { title: "", isCorrect: false }]);
   };
 
   const handleLoadQuestions = (index) => {
     const q = details.questions[index];
+    console.log({ q });
     if (q) {
-      setQuestion(q.text || "");
+      setQuestion(q.question || "");
       setOptions(
         q.options || [
-          { text: "", isCorrect: false },
-          { text: "", isCorrect: false },
-          { text: "", isCorrect: false },
+          { title: "", isCorrect: false },
+          { title: "", isCorrect: false },
+          { title: "", isCorrect: false },
         ]
       );
     } else {
       setQuestion("");
       setOptions([
-        { text: "", isCorrect: false },
-        { text: "", isCorrect: false },
-        { text: "", isCorrect: false },
+        { title: "", isCorrect: false },
+        { title: "", isCorrect: false },
+        { title: "", isCorrect: false },
       ]);
     }
   };
 
   const handlePrev = () => {
-    // if (!validateForm()) {
-    //   return;
-    // }
-
-    if (questionNumber == 1) {
+    if (questionNumber === 1) {
       setCurrentStep(1);
     } else {
       setQuestionNumber((prev) => prev - 1);
 
       updateQuestion(questionNumber - 1, {
-        text: question,
+        question: question,
         options: [...options],
       });
     }
@@ -120,9 +118,9 @@ function QuizQuestionForm() {
       return;
     }
 
-    if (questionNumber <= details.numQuestions) {
+    if (questionNumber < details.numQuestions) {
       updateQuestion(questionNumber - 1, {
-        text: question,
+        question: question,
         options: [...options],
       });
       setQuestionNumber((prev) => prev + 1);
@@ -149,7 +147,7 @@ function QuizQuestionForm() {
             <Option
               key={index}
               id={index}
-              value={option.text}
+              value={option.title} // Changed from `text` to `title`
               isChecked={option.isCorrect}
               onTextChange={(text) => handleTextChange(index, text)}
               onSelect={() => handleCorrectChange(index)}
